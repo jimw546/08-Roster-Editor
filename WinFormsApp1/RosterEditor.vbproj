@@ -6,12 +6,25 @@
     <StartupObject>Sub Main</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
+    <ApplicationIcon>r08w.ico</ApplicationIcon>
+    <PackageIcon>r08w.ico</PackageIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="r08w.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <Import Include="System.Data" />
     <Import Include="System.Drawing" />
     <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\r08w.ico">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

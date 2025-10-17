@@ -27,290 +27,282 @@ Public Class Form1
 
     Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonImport.Click
 
-        'initialises all the table columns
-        ListBoxPlayers.BeginUpdate()
-        ListBoxTeams.BeginUpdate()
-        If DataTeams.Columns.IndexOf("Player1-1") = -1 Then
-            'For i = 1 To 11
-            '    DataTeamNames.Columns.Add()
-            'Next
-            'For i = 0 To 2
-            '    DataStadiums.Columns.Add("", GetType(String))
-            '    DataStadiums.Columns.Add("", GetType(Integer))
-            '    DataStadiums.Columns.Add("", GetType(String))
-            'Next
+        Dim openfileresult As DialogResult = import1.ShowDialog()
+        If import1.FileName <> "" And openfileresult = DialogResult.OK Then
 
-            DataPlayers.Columns.Add("Address1", GetType(Integer))
-            DataPlayers.Columns.Add("Address2", GetType(Integer))
-            DataPlayers.Columns.Add("Commentary1", GetType(Integer))
-            DataPlayers.Columns.Add("Commentary2", GetType(Integer))
-            DataPlayers.Columns.Add("Name1", GetType(Integer))
-            DataPlayers.Columns.Add("Name2", GetType(Integer))
-            DataPlayers.Columns.Add("Name3", GetType(Integer))
-            DataPlayers.Columns.Add("Name4", GetType(Integer))
-            DataPlayers.Columns.Add("Name5", GetType(Integer))
-            DataPlayers.Columns.Add("Name6", GetType(Integer))
-            DataPlayers.Columns.Add("Name7", GetType(Integer))
-            DataPlayers.Columns.Add("Name8", GetType(Integer))
-            DataPlayers.Columns.Add("Name9", GetType(Integer))
-            DataPlayers.Columns.Add("Name10", GetType(Integer))
-            DataPlayers.Columns.Add("Name11", GetType(Integer))
-            DataPlayers.Columns.Add("Name12", GetType(Integer))
-            DataPlayers.Columns.Add("Name13", GetType(Integer))
-            DataPlayers.Columns.Add("Name14", GetType(Integer))
-            DataPlayers.Columns.Add("Name15", GetType(Integer))
-            DataPlayers.Columns.Add("Name16", GetType(Integer))
-            DataPlayers.Columns.Add("Position1", GetType(Integer))
-            DataPlayers.Columns.Add("Position2", GetType(Integer))
-            DataPlayers.Columns.Add("Weight", GetType(Integer))
-            DataPlayers.Columns.Add("Column23", GetType(Integer))
-            DataPlayers.Columns.Add("Nationality1", GetType(Integer))
-            DataPlayers.Columns.Add("Nationality2", GetType(Integer))
-            DataPlayers.Columns.Add("Nationality3", GetType(Integer))
-            DataPlayers.Columns.Add("Column27", GetType(Integer))
-            DataPlayers.Columns.Add("Height", GetType(Integer))
-            DataPlayers.Columns.Add("Age", GetType(Integer))
-            DataPlayers.Columns.Add("Column30", GetType(Integer))
-            DataPlayers.Columns.Add("LeftRightHand", GetType(Integer))
-            DataPlayers.Columns.Add("Tend", GetType(Integer))
-            DataPlayers.Columns.Add("Attack", GetType(Integer))
-            DataPlayers.Columns.Add("Defend", GetType(Integer))
-            DataPlayers.Columns.Add("Speed", GetType(Integer))
-            DataPlayers.Columns.Add("Accel", GetType(Integer))
-            DataPlayers.Columns.Add("Agil", GetType(Integer))
-            DataPlayers.Columns.Add("Handl", GetType(Integer))
-            DataPlayers.Columns.Add("Pass", GetType(Integer))
-            DataPlayers.Columns.Add("Kick", GetType(Integer))
-            DataPlayers.Columns.Add("KickPwr", GetType(Integer))
-            DataPlayers.Columns.Add("Goal", GetType(Integer))
-            DataPlayers.Columns.Add("Tackle", GetType(Integer))
-            DataPlayers.Columns.Add("Strength", GetType(Integer))
-            DataPlayers.Columns.Add("Ruck", GetType(Integer))
-            DataPlayers.Columns.Add("Scrum", GetType(Integer))
-            DataPlayers.Columns.Add("Hook", GetType(Integer))
-            DataPlayers.Columns.Add("Lineout", GetType(Integer))
-            DataPlayers.Columns.Add("Discip", GetType(Integer))
-            DataPlayers.Columns.Add("Aggro", GetType(Integer))
-            DataPlayers.Columns.Add("Stamina", GetType(Integer))
-            DataPlayers.Columns.Add("Column52", GetType(Integer))
-            DataPlayers.Columns.Add("Column53", GetType(Integer))
-            DataPlayers.Columns.Add("Column54", GetType(Integer))
-            DataPlayers.Columns.Add("Cons", GetType(Integer))
-            DataPlayers.Columns.Add("Temp", GetType(Integer))
-            DataPlayers.Columns.Add("Creat", GetType(Integer))
-            DataPlayers.Columns.Add("Brave", GetType(Integer))
-            DataPlayers.Columns.Add("Set", GetType(Integer))
-            DataPlayers.Columns.Add("Crash", GetType(Integer))
-            DataPlayers.Columns.Add("Gap", GetType(Integer))
-            DataPlayers.Columns.Add("Column62", GetType(Integer))
-            DataPlayers.Columns.Add("Column63", GetType(Integer))
-            DataPlayers.Columns.Add("Column64", GetType(Integer))
-            DataPlayers.Columns.Add("Column65", GetType(Integer))
-            DataPlayers.Columns.Add("Column66", GetType(Integer))
-            DataPlayers.Columns.Add("Column67", GetType(Integer))
-            DataPlayers.Columns.Add("Column68", GetType(Integer))
-            DataPlayers.Columns.Add("Column69", GetType(Integer))
-            DataPlayers.Columns.Add("Column70", GetType(Integer))
-            DataPlayers.Columns.Add("Column71", GetType(Integer))
-            DataPlayers.Columns.Add("Column72", GetType(Integer))
-            DataPlayers.Columns.Add("Column73", GetType(Integer))
-            DataPlayers.Columns.Add("Column74", GetType(Integer))
-            DataPlayers.Columns.Add("Column75", GetType(Integer))
-            DataPlayers.Columns.Add("Column76", GetType(Integer))
-            DataPlayers.Columns.Add("Column77", GetType(Integer))
-            DataPlayers.Columns.Add("Column78", GetType(Integer))
-            DataPlayers.Columns.Add("Column79", GetType(Integer))
-            DataPlayers.Columns.Add("Column80", GetType(Integer))
-            DataPlayers.Columns.Add("Column81", GetType(Integer))
-            DataPlayers.Columns.Add("Column82", GetType(Integer))
-            DataPlayers.Columns.Add("Column83", GetType(Integer))
-            DataPlayers.Columns.Add("Perks1", GetType(Integer))
-            DataPlayers.Columns.Add("Perks2", GetType(Integer))
-            DataPlayers.Columns.Add("Column86", GetType(Integer))
-            DataPlayers.Columns.Add("Column87", GetType(Integer))
-            DataPlayers.Columns.Add("Boots", GetType(Integer))
-            DataPlayers.Columns.Add("SockandFinger", GetType(Integer))
-            DataPlayers.Columns.Add("Face1", GetType(Integer))
-            DataPlayers.Columns.Add("Face2", GetType(Integer))
-            DataPlayers.Columns.Add("Extra", GetType(Integer))
-            DataPlayers.Columns.Add("WristCreateSkin", GetType(Integer))
-            DataPlayers.Columns.Add("ThighGlove", GetType(Integer))
-            DataPlayers.Columns.Add("Column95", GetType(Integer))
-            DataPlayers.Columns.Add("Column96", GetType(Integer))
-            DataPlayers.Columns.Add("Column97", GetType(Integer))
-            DataPlayers.Columns.Add("Column98", GetType(Integer))
-            DataPlayers.Columns.Add("Column99", GetType(Integer))
+            'initialises all the table columns
+            ListBoxPlayers.BeginUpdate()
+            ListBoxTeams.BeginUpdate()
+            If DataTeams.Columns.IndexOf("Player1-1") = -1 Then
 
-            DataTeams.Columns.Add("Player1-1", GetType(Integer))
-            DataTeams.Columns.Add("Player1-2", GetType(Integer))
-            DataTeams.Columns.Add("Player2-1", GetType(Integer))
-            DataTeams.Columns.Add("Player2-2", GetType(Integer))
-            DataTeams.Columns.Add("Player3-1", GetType(Integer))
-            DataTeams.Columns.Add("Player3-2", GetType(Integer))
-            DataTeams.Columns.Add("Player4-1", GetType(Integer))
-            DataTeams.Columns.Add("Player4-2", GetType(Integer))
-            DataTeams.Columns.Add("Player5-1", GetType(Integer))
-            DataTeams.Columns.Add("Player5-2", GetType(Integer))
-            DataTeams.Columns.Add("Player6-1", GetType(Integer))
-            DataTeams.Columns.Add("Player6-2", GetType(Integer))
-            DataTeams.Columns.Add("Player7-1", GetType(Integer))
-            DataTeams.Columns.Add("Player7-2", GetType(Integer))
-            DataTeams.Columns.Add("Player8-1", GetType(Integer))
-            DataTeams.Columns.Add("Player8-2", GetType(Integer))
-            DataTeams.Columns.Add("Player9-1", GetType(Integer))
-            DataTeams.Columns.Add("Player9-2", GetType(Integer))
-            DataTeams.Columns.Add("Player10-1", GetType(Integer))
-            DataTeams.Columns.Add("Player10-2", GetType(Integer))
-            DataTeams.Columns.Add("Player11-1", GetType(Integer))
-            DataTeams.Columns.Add("Player11-2", GetType(Integer))
-            DataTeams.Columns.Add("Player12-1", GetType(Integer))
-            DataTeams.Columns.Add("Player12-2", GetType(Integer))
-            DataTeams.Columns.Add("Player13-1", GetType(Integer))
-            DataTeams.Columns.Add("Player13-2", GetType(Integer))
-            DataTeams.Columns.Add("Player14-1", GetType(Integer))
-            DataTeams.Columns.Add("Player14-2", GetType(Integer))
-            DataTeams.Columns.Add("Player15-1", GetType(Integer))
-            DataTeams.Columns.Add("Player15-2", GetType(Integer))
-            DataTeams.Columns.Add("Player16-1", GetType(Integer))
-            DataTeams.Columns.Add("Player16-2", GetType(Integer))
-            DataTeams.Columns.Add("Player17-1", GetType(Integer))
-            DataTeams.Columns.Add("Player17-2", GetType(Integer))
-            DataTeams.Columns.Add("Player18-1", GetType(Integer))
-            DataTeams.Columns.Add("Player18-2", GetType(Integer))
-            DataTeams.Columns.Add("Player19-1", GetType(Integer))
-            DataTeams.Columns.Add("Player19-2", GetType(Integer))
-            DataTeams.Columns.Add("Player20-1", GetType(Integer))
-            DataTeams.Columns.Add("Player20-2", GetType(Integer))
-            DataTeams.Columns.Add("Player21-1", GetType(Integer))
-            DataTeams.Columns.Add("Player21-2", GetType(Integer))
-            DataTeams.Columns.Add("Player22-1", GetType(Integer))
-            DataTeams.Columns.Add("Player22-2", GetType(Integer))
-            DataTeams.Columns.Add("Player23-1", GetType(Integer))
-            DataTeams.Columns.Add("Player23-2", GetType(Integer))
-            DataTeams.Columns.Add("Player24-1", GetType(Integer))
-            DataTeams.Columns.Add("Player24-2", GetType(Integer))
-            DataTeams.Columns.Add("Player25-1", GetType(Integer))
-            DataTeams.Columns.Add("Player25-2", GetType(Integer))
-            DataTeams.Columns.Add("Player26-1", GetType(Integer))
-            DataTeams.Columns.Add("Player26-2", GetType(Integer))
-            DataTeams.Columns.Add("Player27-1", GetType(Integer))
-            DataTeams.Columns.Add("Player27-2", GetType(Integer))
-            DataTeams.Columns.Add("Player28-1", GetType(Integer))
-            DataTeams.Columns.Add("Player28-2", GetType(Integer))
-            DataTeams.Columns.Add("Player29-1", GetType(Integer))
-            DataTeams.Columns.Add("Player29-2", GetType(Integer))
-            DataTeams.Columns.Add("Player30-1", GetType(Integer))
-            DataTeams.Columns.Add("Player30-2", GetType(Integer))
-            DataTeams.Columns.Add("Index", GetType(Integer))
-            DataTeams.Columns.Add("Col62", GetType(Integer))
-            DataTeams.Columns.Add("Col63", GetType(Integer))
-            DataTeams.Columns.Add("Col64", GetType(Integer))
-            DataTeams.Columns.Add("Captain1", GetType(Integer))
-            DataTeams.Columns.Add("Captain2", GetType(Integer))
-            DataTeams.Columns.Add("ViceCap1", GetType(Integer))
-            DataTeams.Columns.Add("ViceCap2", GetType(Integer))
-            DataTeams.Columns.Add("LongGoal1", GetType(Integer))
-            DataTeams.Columns.Add("LongGoal2", GetType(Integer))
-            DataTeams.Columns.Add("ShortGoal1", GetType(Integer))
-            DataTeams.Columns.Add("ShortGoal2", GetType(Integer))
-            DataTeams.Columns.Add("LongPunt1", GetType(Integer))
-            DataTeams.Columns.Add("LongPunt2", GetType(Integer))
-            DataTeams.Columns.Add("ShortPunt1", GetType(Integer))
-            DataTeams.Columns.Add("ShortPunt2", GetType(Integer))
-            DataTeams.Columns.Add("KickOff1", GetType(Integer))
-            DataTeams.Columns.Add("KickOff2", GetType(Integer))
-            DataTeams.Columns.Add("Attack", GetType(Integer))
-            DataTeams.Columns.Add("Defend", GetType(Integer))
-            DataTeams.Columns.Add("Scrum", GetType(Integer))
-            DataTeams.Columns.Add("Lineout", GetType(Integer))
-            DataTeams.Columns.Add("Loose", GetType(Integer))
-            DataTeams.Columns.Add("Kicking", GetType(Integer))
-            DataTeams.Columns.Add("Technique", GetType(Integer))
-            DataTeams.Columns.Add("Stamina", GetType(Integer))
-            DataTeams.Columns.Add("Flair", GetType(Integer))
-            DataTeams.Columns.Add("Overall", GetType(Integer))
-            DataTeams.Columns.Add("Column89", GetType(Integer))
-            DataTeams.Columns.Add("Column90", GetType(Integer))
-            DataTeams.Columns.Add("Column91", GetType(Integer))
-            DataTeams.Columns.Add("Performance", GetType(Integer))
-            DataTeams.Columns.Add("SetPlayLeft", GetType(Integer))
-            DataTeams.Columns.Add("SetPlayUp", GetType(Integer))
-            DataTeams.Columns.Add("SetPlayRight", GetType(Integer))
-            DataTeams.Columns.Add("SetPlayDown", GetType(Integer))
-            DataTeams.Columns.Add("HomeStadium", GetType(Integer))
-            DataTeams.Columns.Add("Column98", GetType(Integer))
-            DataTeams.Columns.Add("Column99", GetType(Integer))
-            DataTeams.Columns.Add("Column100", GetType(Integer))
-            DataTeams.Columns.Add("Column101", GetType(Integer))
-            DataTeams.Columns.Add("Column102", GetType(Integer))
-            DataTeams.Columns.Add("Column103", GetType(Integer))
-            DataTeams.Columns.Add("Column104", GetType(Integer))
+                DataPlayers.Columns.Add("Address1", GetType(Integer))
+                DataPlayers.Columns.Add("Address2", GetType(Integer))
+                DataPlayers.Columns.Add("Commentary1", GetType(Integer))
+                DataPlayers.Columns.Add("Commentary2", GetType(Integer))
+                DataPlayers.Columns.Add("Name1", GetType(Integer))
+                DataPlayers.Columns.Add("Name2", GetType(Integer))
+                DataPlayers.Columns.Add("Name3", GetType(Integer))
+                DataPlayers.Columns.Add("Name4", GetType(Integer))
+                DataPlayers.Columns.Add("Name5", GetType(Integer))
+                DataPlayers.Columns.Add("Name6", GetType(Integer))
+                DataPlayers.Columns.Add("Name7", GetType(Integer))
+                DataPlayers.Columns.Add("Name8", GetType(Integer))
+                DataPlayers.Columns.Add("Name9", GetType(Integer))
+                DataPlayers.Columns.Add("Name10", GetType(Integer))
+                DataPlayers.Columns.Add("Name11", GetType(Integer))
+                DataPlayers.Columns.Add("Name12", GetType(Integer))
+                DataPlayers.Columns.Add("Name13", GetType(Integer))
+                DataPlayers.Columns.Add("Name14", GetType(Integer))
+                DataPlayers.Columns.Add("Name15", GetType(Integer))
+                DataPlayers.Columns.Add("Name16", GetType(Integer))
+                DataPlayers.Columns.Add("Position1", GetType(Integer))
+                DataPlayers.Columns.Add("Position2", GetType(Integer))
+                DataPlayers.Columns.Add("Weight", GetType(Integer))
+                DataPlayers.Columns.Add("Column23", GetType(Integer))
+                DataPlayers.Columns.Add("Nationality1", GetType(Integer))
+                DataPlayers.Columns.Add("Nationality2", GetType(Integer))
+                DataPlayers.Columns.Add("Nationality3", GetType(Integer))
+                DataPlayers.Columns.Add("Column27", GetType(Integer))
+                DataPlayers.Columns.Add("Height", GetType(Integer))
+                DataPlayers.Columns.Add("Age", GetType(Integer))
+                DataPlayers.Columns.Add("Column30", GetType(Integer))
+                DataPlayers.Columns.Add("LeftRightHand", GetType(Integer))
+                DataPlayers.Columns.Add("Tend", GetType(Integer))
+                DataPlayers.Columns.Add("Attack", GetType(Integer))
+                DataPlayers.Columns.Add("Defend", GetType(Integer))
+                DataPlayers.Columns.Add("Speed", GetType(Integer))
+                DataPlayers.Columns.Add("Accel", GetType(Integer))
+                DataPlayers.Columns.Add("Agil", GetType(Integer))
+                DataPlayers.Columns.Add("Handl", GetType(Integer))
+                DataPlayers.Columns.Add("Pass", GetType(Integer))
+                DataPlayers.Columns.Add("Kick", GetType(Integer))
+                DataPlayers.Columns.Add("KickPwr", GetType(Integer))
+                DataPlayers.Columns.Add("Goal", GetType(Integer))
+                DataPlayers.Columns.Add("Tackle", GetType(Integer))
+                DataPlayers.Columns.Add("Strength", GetType(Integer))
+                DataPlayers.Columns.Add("Ruck", GetType(Integer))
+                DataPlayers.Columns.Add("Scrum", GetType(Integer))
+                DataPlayers.Columns.Add("Hook", GetType(Integer))
+                DataPlayers.Columns.Add("Lineout", GetType(Integer))
+                DataPlayers.Columns.Add("Discip", GetType(Integer))
+                DataPlayers.Columns.Add("Aggro", GetType(Integer))
+                DataPlayers.Columns.Add("Stamina", GetType(Integer))
+                DataPlayers.Columns.Add("Column52", GetType(Integer))
+                DataPlayers.Columns.Add("Column53", GetType(Integer))
+                DataPlayers.Columns.Add("Column54", GetType(Integer))
+                DataPlayers.Columns.Add("Cons", GetType(Integer))
+                DataPlayers.Columns.Add("Temp", GetType(Integer))
+                DataPlayers.Columns.Add("Creat", GetType(Integer))
+                DataPlayers.Columns.Add("Brave", GetType(Integer))
+                DataPlayers.Columns.Add("Set", GetType(Integer))
+                DataPlayers.Columns.Add("Crash", GetType(Integer))
+                DataPlayers.Columns.Add("Gap", GetType(Integer))
+                DataPlayers.Columns.Add("Column62", GetType(Integer))
+                DataPlayers.Columns.Add("Column63", GetType(Integer))
+                DataPlayers.Columns.Add("Column64", GetType(Integer))
+                DataPlayers.Columns.Add("Column65", GetType(Integer))
+                DataPlayers.Columns.Add("Column66", GetType(Integer))
+                DataPlayers.Columns.Add("Column67", GetType(Integer))
+                DataPlayers.Columns.Add("Column68", GetType(Integer))
+                DataPlayers.Columns.Add("Column69", GetType(Integer))
+                DataPlayers.Columns.Add("Column70", GetType(Integer))
+                DataPlayers.Columns.Add("Column71", GetType(Integer))
+                DataPlayers.Columns.Add("Column72", GetType(Integer))
+                DataPlayers.Columns.Add("Column73", GetType(Integer))
+                DataPlayers.Columns.Add("Column74", GetType(Integer))
+                DataPlayers.Columns.Add("Column75", GetType(Integer))
+                DataPlayers.Columns.Add("Column76", GetType(Integer))
+                DataPlayers.Columns.Add("Column77", GetType(Integer))
+                DataPlayers.Columns.Add("Column78", GetType(Integer))
+                DataPlayers.Columns.Add("Column79", GetType(Integer))
+                DataPlayers.Columns.Add("Column80", GetType(Integer))
+                DataPlayers.Columns.Add("Column81", GetType(Integer))
+                DataPlayers.Columns.Add("Column82", GetType(Integer))
+                DataPlayers.Columns.Add("Column83", GetType(Integer))
+                DataPlayers.Columns.Add("Perks1", GetType(Integer))
+                DataPlayers.Columns.Add("Perks2", GetType(Integer))
+                DataPlayers.Columns.Add("Column86", GetType(Integer))
+                DataPlayers.Columns.Add("Column87", GetType(Integer))
+                DataPlayers.Columns.Add("Boots", GetType(Integer))
+                DataPlayers.Columns.Add("SockandFinger", GetType(Integer))
+                DataPlayers.Columns.Add("Face1", GetType(Integer))
+                DataPlayers.Columns.Add("Face2", GetType(Integer))
+                DataPlayers.Columns.Add("Extra", GetType(Integer))
+                DataPlayers.Columns.Add("WristCreateSkin", GetType(Integer))
+                DataPlayers.Columns.Add("ThighGlove", GetType(Integer))
+                DataPlayers.Columns.Add("Column95", GetType(Integer))
+                DataPlayers.Columns.Add("Column96", GetType(Integer))
+                DataPlayers.Columns.Add("Column97", GetType(Integer))
+                DataPlayers.Columns.Add("Column98", GetType(Integer))
+                DataPlayers.Columns.Add("Column99", GetType(Integer))
 
-            DataPlayers.Columns.Add("PlayerName")
-            DataPlayers.Columns.Add("PlayerAddress", GetType(Integer))
-            DataPlayers.Columns.Add("PlayerIndex", GetType(Integer))
-            DataTeams.Columns.Add("TeamName")
-            DataTeams.Columns.Add("Enabled")
-            DataTeams.Columns.Add("TeamIndex")
-            DataTeams.Columns.Add("FeGroup")
-            DataTeams.Columns.Add("HomeStadiumName")
-        Else
-            DataPlayers.Clear()
-            DataTeams.Clear()
-            'DataStadiums.Clear()
-            'DataTeamNames.Clear()
-        End If
+                DataTeams.Columns.Add("Player1-1", GetType(Integer))
+                DataTeams.Columns.Add("Player1-2", GetType(Integer))
+                DataTeams.Columns.Add("Player2-1", GetType(Integer))
+                DataTeams.Columns.Add("Player2-2", GetType(Integer))
+                DataTeams.Columns.Add("Player3-1", GetType(Integer))
+                DataTeams.Columns.Add("Player3-2", GetType(Integer))
+                DataTeams.Columns.Add("Player4-1", GetType(Integer))
+                DataTeams.Columns.Add("Player4-2", GetType(Integer))
+                DataTeams.Columns.Add("Player5-1", GetType(Integer))
+                DataTeams.Columns.Add("Player5-2", GetType(Integer))
+                DataTeams.Columns.Add("Player6-1", GetType(Integer))
+                DataTeams.Columns.Add("Player6-2", GetType(Integer))
+                DataTeams.Columns.Add("Player7-1", GetType(Integer))
+                DataTeams.Columns.Add("Player7-2", GetType(Integer))
+                DataTeams.Columns.Add("Player8-1", GetType(Integer))
+                DataTeams.Columns.Add("Player8-2", GetType(Integer))
+                DataTeams.Columns.Add("Player9-1", GetType(Integer))
+                DataTeams.Columns.Add("Player9-2", GetType(Integer))
+                DataTeams.Columns.Add("Player10-1", GetType(Integer))
+                DataTeams.Columns.Add("Player10-2", GetType(Integer))
+                DataTeams.Columns.Add("Player11-1", GetType(Integer))
+                DataTeams.Columns.Add("Player11-2", GetType(Integer))
+                DataTeams.Columns.Add("Player12-1", GetType(Integer))
+                DataTeams.Columns.Add("Player12-2", GetType(Integer))
+                DataTeams.Columns.Add("Player13-1", GetType(Integer))
+                DataTeams.Columns.Add("Player13-2", GetType(Integer))
+                DataTeams.Columns.Add("Player14-1", GetType(Integer))
+                DataTeams.Columns.Add("Player14-2", GetType(Integer))
+                DataTeams.Columns.Add("Player15-1", GetType(Integer))
+                DataTeams.Columns.Add("Player15-2", GetType(Integer))
+                DataTeams.Columns.Add("Player16-1", GetType(Integer))
+                DataTeams.Columns.Add("Player16-2", GetType(Integer))
+                DataTeams.Columns.Add("Player17-1", GetType(Integer))
+                DataTeams.Columns.Add("Player17-2", GetType(Integer))
+                DataTeams.Columns.Add("Player18-1", GetType(Integer))
+                DataTeams.Columns.Add("Player18-2", GetType(Integer))
+                DataTeams.Columns.Add("Player19-1", GetType(Integer))
+                DataTeams.Columns.Add("Player19-2", GetType(Integer))
+                DataTeams.Columns.Add("Player20-1", GetType(Integer))
+                DataTeams.Columns.Add("Player20-2", GetType(Integer))
+                DataTeams.Columns.Add("Player21-1", GetType(Integer))
+                DataTeams.Columns.Add("Player21-2", GetType(Integer))
+                DataTeams.Columns.Add("Player22-1", GetType(Integer))
+                DataTeams.Columns.Add("Player22-2", GetType(Integer))
+                DataTeams.Columns.Add("Player23-1", GetType(Integer))
+                DataTeams.Columns.Add("Player23-2", GetType(Integer))
+                DataTeams.Columns.Add("Player24-1", GetType(Integer))
+                DataTeams.Columns.Add("Player24-2", GetType(Integer))
+                DataTeams.Columns.Add("Player25-1", GetType(Integer))
+                DataTeams.Columns.Add("Player25-2", GetType(Integer))
+                DataTeams.Columns.Add("Player26-1", GetType(Integer))
+                DataTeams.Columns.Add("Player26-2", GetType(Integer))
+                DataTeams.Columns.Add("Player27-1", GetType(Integer))
+                DataTeams.Columns.Add("Player27-2", GetType(Integer))
+                DataTeams.Columns.Add("Player28-1", GetType(Integer))
+                DataTeams.Columns.Add("Player28-2", GetType(Integer))
+                DataTeams.Columns.Add("Player29-1", GetType(Integer))
+                DataTeams.Columns.Add("Player29-2", GetType(Integer))
+                DataTeams.Columns.Add("Player30-1", GetType(Integer))
+                DataTeams.Columns.Add("Player30-2", GetType(Integer))
+                DataTeams.Columns.Add("Index", GetType(Integer))
+                DataTeams.Columns.Add("Col62", GetType(Integer))
+                DataTeams.Columns.Add("Col63", GetType(Integer))
+                DataTeams.Columns.Add("Col64", GetType(Integer))
+                DataTeams.Columns.Add("Captain1", GetType(Integer))
+                DataTeams.Columns.Add("Captain2", GetType(Integer))
+                DataTeams.Columns.Add("ViceCap1", GetType(Integer))
+                DataTeams.Columns.Add("ViceCap2", GetType(Integer))
+                DataTeams.Columns.Add("LongGoal1", GetType(Integer))
+                DataTeams.Columns.Add("LongGoal2", GetType(Integer))
+                DataTeams.Columns.Add("ShortGoal1", GetType(Integer))
+                DataTeams.Columns.Add("ShortGoal2", GetType(Integer))
+                DataTeams.Columns.Add("LongPunt1", GetType(Integer))
+                DataTeams.Columns.Add("LongPunt2", GetType(Integer))
+                DataTeams.Columns.Add("ShortPunt1", GetType(Integer))
+                DataTeams.Columns.Add("ShortPunt2", GetType(Integer))
+                DataTeams.Columns.Add("KickOff1", GetType(Integer))
+                DataTeams.Columns.Add("KickOff2", GetType(Integer))
+                DataTeams.Columns.Add("Attack", GetType(Integer))
+                DataTeams.Columns.Add("Defend", GetType(Integer))
+                DataTeams.Columns.Add("Scrum", GetType(Integer))
+                DataTeams.Columns.Add("Lineout", GetType(Integer))
+                DataTeams.Columns.Add("Loose", GetType(Integer))
+                DataTeams.Columns.Add("Kicking", GetType(Integer))
+                DataTeams.Columns.Add("Technique", GetType(Integer))
+                DataTeams.Columns.Add("Stamina", GetType(Integer))
+                DataTeams.Columns.Add("Flair", GetType(Integer))
+                DataTeams.Columns.Add("Overall", GetType(Integer))
+                DataTeams.Columns.Add("Column89", GetType(Integer))
+                DataTeams.Columns.Add("Column90", GetType(Integer))
+                DataTeams.Columns.Add("Column91", GetType(Integer))
+                DataTeams.Columns.Add("Performance", GetType(Integer))
+                DataTeams.Columns.Add("SetPlayLeft", GetType(Integer))
+                DataTeams.Columns.Add("SetPlayUp", GetType(Integer))
+                DataTeams.Columns.Add("SetPlayRight", GetType(Integer))
+                DataTeams.Columns.Add("SetPlayDown", GetType(Integer))
+                DataTeams.Columns.Add("HomeStadium", GetType(Integer))
+                DataTeams.Columns.Add("Column98", GetType(Integer))
+                DataTeams.Columns.Add("Column99", GetType(Integer))
+                DataTeams.Columns.Add("Column100", GetType(Integer))
+                DataTeams.Columns.Add("Column101", GetType(Integer))
+                DataTeams.Columns.Add("Column102", GetType(Integer))
+                DataTeams.Columns.Add("Column103", GetType(Integer))
+                DataTeams.Columns.Add("Column104", GetType(Integer))
 
-        Dim xFile1 As String = IO.Path.GetFullPath("be2970b0ada8e42cf891ce60ffe69575.xml")
-        Dim dt As New DataSet
-        dt.ReadXml(xFile1)
-        DataTeamNames = dt.Tables(2)
+                DataPlayers.Columns.Add("PlayerName")
+                DataPlayers.Columns.Add("PlayerAddress", GetType(Integer))
+                DataPlayers.Columns.Add("PlayerIndex", GetType(Integer))
+                DataTeams.Columns.Add("TeamName")
+                DataTeams.Columns.Add("Enabled")
+                DataTeams.Columns.Add("TeamIndex")
+                DataTeams.Columns.Add("FeGroup")
+                DataTeams.Columns.Add("HomeStadiumName")
+            Else
+                DataPlayers.Clear()
+                DataTeams.Clear()
+            End If
 
-        Dim xFile2 As String = IO.Path.GetFullPath("119ba3f37fe7a31c2b2ee45ceeafa091.xml")
-        Dim dt2 As New DataSet
-        dt2.ReadXml(xFile2)
-        DataStadiums = dt2.Tables(2)
+            Dim xFile1 As String = IO.Path.GetFullPath("be2970b0ada8e42cf891ce60ffe69575.xml")
+            Dim dt As New DataSet
+            dt.ReadXml(xFile1)
+            DataTeamNames = dt.Tables(2)
 
-        import1.ShowDialog()
-        Using Reader As BinaryReader = New BinaryReader(File.Open(import1.FileName, FileMode.Open))
-            For i = 0 To 131
-                FileStart(i) = Reader.ReadByte 'dump the first 132 bytes into a holding array
-            Next
+            Dim xFile2 As String = IO.Path.GetFullPath("119ba3f37fe7a31c2b2ee45ceeafa091.xml")
+            Dim dt2 As New DataSet
+            dt2.ReadXml(xFile2)
+            DataStadiums = dt2.Tables(2)
 
-            For i = 0 To 141
-                DataTeams.Rows.Add()
-                For j = 0 To 103
-                    DataTeams.Rows(i)(j) = Reader.ReadByte
+            Using Reader As BinaryReader = New BinaryReader(File.Open(import1.FileName, FileMode.Open))
+                For i = 0 To 131
+                    FileStart(i) = Reader.ReadByte 'dump the first 132 bytes into a holding array
                 Next
-            Next
-            'reader.ReadBytes(100) 'buffer data between roster and players
-            For i = 0 To 2042 '1904 '1904 to check a created player from in-game, should be 1903 '1904 rows, I think this is the max in the file
-                DataPlayers.Rows.Add()
-                For j = 0 To 99
-                    Try
-                        DataPlayers.Rows(i)(j) = Reader.ReadByte
-                        Exit Try
-                    Catch ex As EndOfStreamException
-                        i = 3001
-                        j = 100
-                    Finally
-                    End Try
+
+                For i = 0 To 141
+                    DataTeams.Rows.Add()
+                    For j = 0 To 103
+                        DataTeams.Rows(i)(j) = Reader.ReadByte
+                    Next
                 Next
-            Next
-        End Using
+                'reader.ReadBytes(100) 'buffer data between roster and players
+                For i = 0 To 2042 '1904 '1904 to check a created player from in-game, should be 1903 '1904 rows, I think this is the max in the file
+                    DataPlayers.Rows.Add()
+                    For j = 0 To 99
+                        Try
+                            DataPlayers.Rows(i)(j) = Reader.ReadByte
+                            Exit Try
+                        Catch ex As EndOfStreamException
+                            i = 3001
+                            j = 100
+                        Finally
+                        End Try
+                    Next
+                Next
+            End Using
 
-        ''this deletes unused lines from player data:
-        'For i = DataPlayers.Rows.Count - 1 To 0 Step -1
-        '    If DataPlayers.Rows(i)("Column1") = 0 And DataPlayers.Rows(i)("Column2") = 0 Then
-        '        DataPlayers.Rows(i).Delete()
-        '    End If
-        'Next
-        'DataPlayers.AcceptChanges()
+            ''this deletes unused lines from player data:
+            'For i = DataPlayers.Rows.Count - 1 To 0 Step -1
+            '    If DataPlayers.Rows(i)("Column1") = 0 And DataPlayers.Rows(i)("Column2") = 0 Then
+            '        DataPlayers.Rows(i).Delete()
+            '    End If
+            'Next
+            'DataPlayers.AcceptChanges()
 
 
-        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance)
-        For i = 0 To DataPlayers.Rows.Count - 1
-            DataPlayers.Rows(i)("PlayerName") = Chr(DataPlayers.Rows(i)(4)) & Chr(DataPlayers.Rows(i)(5)) _
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance)
+            For i = 0 To DataPlayers.Rows.Count - 1
+                DataPlayers.Rows(i)("PlayerName") = Chr(DataPlayers.Rows(i)(4)) & Chr(DataPlayers.Rows(i)(5)) _
             & Chr(DataPlayers.Rows(i)(6)) & Chr(DataPlayers.Rows(i)(7)) _
             & Chr(DataPlayers.Rows(i)(8)) & Chr(DataPlayers.Rows(i)(9)) _
             & Chr(DataPlayers.Rows(i)(10)) & Chr(DataPlayers.Rows(i)(11)) _
@@ -318,47 +310,50 @@ Public Class Form1
             & Chr(DataPlayers.Rows(i)(14)) & Chr(DataPlayers.Rows(i)(15)) _
             & Chr(DataPlayers.Rows(i)(16)) & Chr(DataPlayers.Rows(i)(17)) _
             & Chr(DataPlayers.Rows(i)(18)) & Chr(DataPlayers.Rows(i)(19))
-            DataPlayers.Rows(i)("PlayerIndex") = i
-            DataPlayers(i)("PlayerAddress") = CInt("&H" & Hex(DataPlayers(i)(1)) &
+                DataPlayers.Rows(i)("PlayerIndex") = i
+                DataPlayers(i)("PlayerAddress") = CInt("&H" & Hex(DataPlayers(i)(1)) &
             Strings.Right("00" & Hex(DataPlayers(i)(0)).ToString, 2))
-        Next
+            Next
 
-        'add the team name to the data from the be29 file
-        For i = 0 To DataTeams.Rows.Count - 1
-            If DataTeams(i)(60).ToString <> "" Then
-                For j = 0 To DataTeamNames.Rows.Count - 1
-                    If DataTeamNames(j)(0).ToString <> "" Then
-                        If DataTeams(i)(60) > 0 And DataTeamNames(j)(0) > 0 And DataTeams(i)(60) = DataTeamNames(j)(0) Then
-                            DataTeams(i)("TeamName") = DataTeamNames(j)(6)
-                            DataTeams(i)("Enabled") = DataTeamNames(j)(1)
-                            DataTeams(i)("FeGroup") = DataTeamNames(j)(4)
-                            DataTeams(i)("TeamIndex") = i
+            'add the team name to the data from the be29 file
+            For i = 0 To DataTeams.Rows.Count - 1
+                If DataTeams(i)(60).ToString <> "" Then
+                    For j = 0 To DataTeamNames.Rows.Count - 1
+                        If DataTeamNames(j)(0).ToString <> "" Then
+                            If DataTeams(i)(60) > 0 And DataTeamNames(j)(0) > 0 And DataTeams(i)(60) = DataTeamNames(j)(0) Then
+                                DataTeams(i)("TeamName") = DataTeamNames(j)(6)
+                                DataTeams(i)("Enabled") = DataTeamNames(j)(1)
+                                DataTeams(i)("FeGroup") = DataTeamNames(j)(4)
+                                DataTeams(i)("TeamIndex") = i
+                            End If
                         End If
-                    End If
-                Next
-                For j = 0 To DataStadiums.Rows.Count - 1
-                    If DataTeams(i)(96) = DataStadiums(j)(1) Then
-                        DataTeams(i)("HomeStadiumName") = DataStadiums(j)(4)
-                    End If
-                Next
-            End If
-        Next
+                    Next
+                    For j = 0 To DataStadiums.Rows.Count - 1
+                        If DataTeams(i)(96) = DataStadiums(j)(1) Then
+                            DataTeams(i)("HomeStadiumName") = DataStadiums(j)(4)
+                        End If
+                    Next
+                End If
+            Next
 
-        DataViewPlayers.Sort = "PlayerName" 'sort the player list alphabetically
-        ListBoxPlayers.DataSource = DataViewPlayers
-        ListBoxPlayers.DisplayMember = "PlayerName"
-        ListBoxPlayers.ValueMember = "PlayerIndex"
-        PlayerFilter()
+            DataViewPlayers.Sort = "PlayerName" 'sort the player list alphabetically
+            ListBoxPlayers.DataSource = DataViewPlayers
+            ListBoxPlayers.DisplayMember = "PlayerName"
+            ListBoxPlayers.ValueMember = "PlayerIndex"
+            PlayerFilter()
 
-        ListBoxTeams.DataSource = DataViewTeams
-        ListBoxTeams.DisplayMember = "TeamName"
-        ListBoxTeams.ValueMember = "TeamIndex"
-        TeamFilter()
+            ListBoxTeams.DataSource = DataViewTeams
+            ListBoxTeams.DisplayMember = "TeamName"
+            ListBoxTeams.ValueMember = "TeamIndex"
+            TeamFilter()
 
-        ListBoxPlayers.SelectedIndex = 0
-        ListBoxTeams.SelectedIndex = 0
-        ListBoxTeams.EndUpdate()
-        ListBoxPlayers.EndUpdate()
+            ListBoxPlayers.SelectedIndex = 0
+            ListBoxTeams.SelectedIndex = 0
+            ListBoxTeams.EndUpdate()
+            ListBoxPlayers.EndUpdate()
+        Else
+            MsgBox("No file imported", , "Warning")
+        End If
     End Sub
 
     Private Sub ListBoxPlayers_MouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles ListBoxPlayers.MouseDoubleClick
@@ -396,8 +391,8 @@ Public Class Form1
     Private Sub ButtonSave_Click(sender As Object, e As EventArgs) Handles ButtonSave.Click
         export1.DefaultExt = ".ros"
         export1.FileName = ""
-        export1.ShowDialog()
-        If export1.FileName <> "" Then
+        Dim savefileresult As DialogResult = export1.ShowDialog()
+        If export1.FileName <> "" And savefileresult = DialogResult.OK Then
             Using writer As BinaryWriter = New BinaryWriter(File.Open(export1.FileName, FileMode.Create))
                 writer.Write(FileStart)
                 For i = 0 To DataTeams.Rows.Count - 1
@@ -427,7 +422,8 @@ Public Class Form1
     Private Sub ButtonRDF_Click(sender As Object, e As EventArgs) Handles ButtonRDF.Click
         export1.DefaultExt = ".rdf"
         export1.FileName = "73cb47d1d69c90f28fd1cc4186ac1926"
-        If export1.FileName <> "" And export1.ShowDialog = 1 Then
+        Dim savefileresult As DialogResult = export1.ShowDialog()
+        If export1.FileName <> "" And savefileresult = DialogResult.OK Then
             fs = File.OpenWrite(export1.FileName)
             fs.SetLength(227592)
             fs.WriteByte(0) : fs.WriteByte(13) : fs.WriteByte(0) : fs.WriteByte(0)
