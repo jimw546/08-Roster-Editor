@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         ButtonImport = New Button()
         ListBoxTeams = New ListBox()
@@ -46,6 +47,7 @@ Partial Class Form1
         ButtonTeam = New Button()
         ButtonPlayer = New Button()
         Button1 = New Button()
+        ToolTip1 = New ToolTip(components)
         GroupBox1.SuspendLayout()
         GroupBox2.SuspendLayout()
         GroupBox3.SuspendLayout()
@@ -320,5 +322,6 @@ Partial Class Form1
     Friend WithEvents ButtonTeam As Button
     Friend WithEvents ButtonPlayer As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents ToolTip1 As ToolTip
 
 End Class

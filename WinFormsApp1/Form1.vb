@@ -392,27 +392,25 @@ Public Class Form1
         export1.DefaultExt = ".ros"
         export1.FileName = ""
         Dim savefileresult As DialogResult = export1.ShowDialog()
+        Dim RosBytes As New List(Of Byte)()
+
         If export1.FileName <> "" And savefileresult = DialogResult.OK Then
-            Using writer As BinaryWriter = New BinaryWriter(File.Open(export1.FileName, FileMode.Create))
-                writer.Write(FileStart)
-                For i = 0 To DataTeams.Rows.Count - 1
-                    For j = 0 To 103
-                        writer.Write(Byte.Parse(CInt(DataTeams(i)(j))))
-                    Next
+            fs = File.OpenWrite(export1.FileName)
+            fs.SetLength(219220)
+            fs.Write(FileStart)
+
+            For i = 0 To DataTeams.Rows.Count - 1
+                For j = 0 To 103
+                    RosBytes.Add(DataTeams(i)(j)) 'convert lineup data to bytes and add to output string
                 Next
-                For i = 0 To DataPlayers.Rows.Count - 1
-                    For j = 0 To 99
-                        If IsDBNull(DataPlayers(i)(j)) = True Then
-                            writer.Write(0)
-                        Else
-                            writer.Write(Byte.Parse(CInt(DataPlayers(i)(j))))
-                        End If
-                    Next
+            Next
+            For i = 0 To DataPlayers.Rows.Count - 1
+                For j = 0 To 99
+                    RosBytes.Add(DataPlayers(i)(j)) 'convert player data to bytes and add to output string
                 Next
-                For i = 0 To ((2043 - DataPlayers.Rows.Count) * 25) + 4 ' add extra 0's total file size should be 219220
-                    writer.Write(0)
-                Next
-            End Using
+            Next
+            fs.Write(RosBytes.ToArray(), 0, RosBytes.Count) 'writes all the above data
+            fs.Close()
             MsgBox("File saved, file size " & FileLen(export1.FileName) & ", should be 219220", , "Saved")
         Else
             MsgBox("No file saved", , "Warning")
@@ -423,32 +421,34 @@ Public Class Form1
         export1.DefaultExt = ".rdf"
         export1.FileName = "73cb47d1d69c90f28fd1cc4186ac1926"
         Dim savefileresult As DialogResult = export1.ShowDialog()
+        Dim RosBytes As New List(Of Byte)()
+
         If export1.FileName <> "" And savefileresult = DialogResult.OK Then
             fs = File.OpenWrite(export1.FileName)
             fs.SetLength(227592)
-            fs.WriteByte(0) : fs.WriteByte(13) : fs.WriteByte(0) : fs.WriteByte(0)
+            RosBytes.AddRange({0, 13, 0, 0})
+
             For i = 0 To DataPlayers.Rows.Count - 1
                 For j = 0 To 99
-                    If IsDBNull(DataPlayers(i)(j)) = True Then
-                        fs.WriteByte(0)
-                    Else
-                        fs.WriteByte(DataPlayers(i)(j))
-                    End If
+                    RosBytes.Add(DataPlayers(i)(j)) 'rosbytes being used to combine the data to write output in 1 go rather than writing every byte separately
                 Next
             Next
+
+            fs.Write(RosBytes.ToArray(), 0, RosBytes.Count) 'writes all the team info
             fs.Seek(200108, 0) 'go to this location and write the teams info
+            RosBytes.Clear()
+
             For i = 0 To DataTeams.Rows.Count - 1
                 For j = 0 To 90
-                    fs.WriteByte(DataTeams(i)(j))
+                    RosBytes.Add(DataTeams(i)(j))
                 Next
-                fs.WriteByte(6 - DataTeams(i)(91)) 'inverts team ratings for WL
+                RosBytes.Add(Math.Abs(6 - DataTeams(i)(91))) 'inverts team ratings for WL
                 For j = 92 To 103
-                    fs.WriteByte(DataTeams(i)(j))
+                    RosBytes.Add(DataTeams(i)(j))
                 Next
             Next
-            'For i = 0 To 12715 '3178 ' add extra 0's total file size should be 227592
-            '    fs.WriteByte(0)
-            'Next
+            fs.Write(RosBytes.ToArray(), 0, RosBytes.Count) 'writes all the team info
+
             fs.Close()
             MsgBox("File saved, file size " & FileLen(export1.FileName) & ", should be 227592", , "Saved")
         Else
@@ -529,4 +529,3 @@ Public Class Form1
         FormExtras.BringToFront()
     End Sub
 End Class
-

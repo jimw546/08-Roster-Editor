@@ -129,6 +129,7 @@ Partial Class FormPlayer
         Label36 = New Label()
         Label37 = New Label()
         Label38 = New Label()
+        Label40 = New Label()
         TabControl1.SuspendLayout()
         TabPage1.SuspendLayout()
         CType(NumericSkin, ComponentModel.ISupportInitialize).BeginInit()
@@ -1189,11 +1190,21 @@ Partial Class FormPlayer
         Label38.TabIndex = 62
         Label38.Text = "Positions"
         ' 
+        ' Label40
+        ' 
+        Label40.AutoSize = True
+        Label40.Location = New Point(16, 9)
+        Label40.Name = "Label40"
+        Label40.Size = New Size(61, 20)
+        Label40.TabIndex = 63
+        Label40.Text = "Label40"
+        ' 
         ' FormPlayer
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(603, 457)
+        Controls.Add(Label40)
         Controls.Add(Label38)
         Controls.Add(Label37)
         Controls.Add(Label36)
@@ -1327,4 +1338,5 @@ Partial Class FormPlayer
     Friend WithEvents ComboHands As ComboBox
     Friend WithEvents ComboTapeWrists As ComboBox
     Friend WithEvents ComboTapeThighs As ComboBox
+    Friend WithEvents Label40 As Label
 End Class

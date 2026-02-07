@@ -24,6 +24,7 @@
 
     Private Sub Formplayer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         i = PlayerIndex
+        Label40.Text = i
 
         '0 and 1 player address and profile pic
         '2 and 3 commentary
