@@ -264,7 +264,7 @@ Public Class Form1
             dt2.ReadXml(xFile2)
             DataStadiums = dt2.Tables(2)
 
-            Using Reader As BinaryReader = New BinaryReader(File.Open(import1.FileName, FileMode.Open))
+            Using Reader As New BinaryReader(File.Open(import1.FileName, FileMode.Open))
                 For i = 0 To 131
                     FileStart(i) = Reader.ReadByte 'dump the first 132 bytes into a holding array
                 Next
@@ -285,7 +285,6 @@ Public Class Form1
                         Catch ex As EndOfStreamException
                             i = 3001
                             j = 100
-                        Finally
                         End Try
                     Next
                 Next
@@ -395,20 +394,25 @@ Public Class Form1
         Dim RosBytes As New List(Of Byte)()
 
         If export1.FileName <> "" And savefileresult = DialogResult.OK Then
+            Try
+                RosBytes.AddRange(FileStart) 'rosbytes being used to combine the data to write output in 1 go rather than writing every byte separately
+                For i = 0 To DataTeams.Rows.Count - 1
+                    For j = 0 To 103
+                        RosBytes.Add(DataTeams(i)(j)) 'convert lineup data to bytes and add to output string
+                    Next
+                Next
+                For i = 0 To DataPlayers.Rows.Count - 1
+                    For j = 0 To 99
+                        RosBytes.Add(DataPlayers(i)(j)) 'convert player data to bytes and add to output string
+                    Next
+                Next
+            Catch ex As Exception
+                MsgBox("Error compiling roster data in row " & i & ", column " & j & ", file not saved", , "Error")
+                Return 'exits the sub without saving the file if an error is found
+            End Try
+
             fs = File.OpenWrite(export1.FileName)
             fs.SetLength(219220)
-            fs.Write(FileStart)
-
-            For i = 0 To DataTeams.Rows.Count - 1
-                For j = 0 To 103
-                    RosBytes.Add(DataTeams(i)(j)) 'convert lineup data to bytes and add to output string
-                Next
-            Next
-            For i = 0 To DataPlayers.Rows.Count - 1
-                For j = 0 To 99
-                    RosBytes.Add(DataPlayers(i)(j)) 'convert player data to bytes and add to output string
-                Next
-            Next
             fs.Write(RosBytes.ToArray(), 0, RosBytes.Count) 'writes all the above data
             fs.Close()
             MsgBox("File saved, file size " & FileLen(export1.FileName) & ", should be 219220", , "Saved")
@@ -422,33 +426,35 @@ Public Class Form1
         export1.FileName = "73cb47d1d69c90f28fd1cc4186ac1926"
         Dim savefileresult As DialogResult = export1.ShowDialog()
         Dim RosBytes As New List(Of Byte)()
+        Dim RosBytes2 As New List(Of Byte)()
 
         If export1.FileName <> "" And savefileresult = DialogResult.OK Then
+            Try
+                RosBytes.AddRange({0, 13, 0, 0}) 'rosbytes being used to combine the data to write output in 1 go rather than writing every byte separately
+                For i = 0 To DataPlayers.Rows.Count - 1
+                    For j = 0 To 99
+                        RosBytes.Add(DataPlayers(i)(j))
+                    Next
+                Next
+                For i = 0 To DataTeams.Rows.Count - 1
+                    For j = 0 To 90
+                        RosBytes2.Add(DataTeams(i)(j))
+                    Next
+                    RosBytes2.Add(Math.Abs(6 - DataTeams(i)(91))) 'inverts team ratings for WL
+                    For j = 92 To 103
+                        RosBytes2.Add(DataTeams(i)(j))
+                    Next
+                Next
+            Catch ex As Exception
+                MsgBox("Error compiling roster data in row " & i & ", column " & j & ", file not saved", , "Error")
+                Return 'exits the sub without saving the file if an error is found
+            End Try
+
             fs = File.OpenWrite(export1.FileName)
             fs.SetLength(227592)
-            RosBytes.AddRange({0, 13, 0, 0})
-
-            For i = 0 To DataPlayers.Rows.Count - 1
-                For j = 0 To 99
-                    RosBytes.Add(DataPlayers(i)(j)) 'rosbytes being used to combine the data to write output in 1 go rather than writing every byte separately
-                Next
-            Next
-
             fs.Write(RosBytes.ToArray(), 0, RosBytes.Count) 'writes all the team info
             fs.Seek(200108, 0) 'go to this location and write the teams info
-            RosBytes.Clear()
-
-            For i = 0 To DataTeams.Rows.Count - 1
-                For j = 0 To 90
-                    RosBytes.Add(DataTeams(i)(j))
-                Next
-                RosBytes.Add(Math.Abs(6 - DataTeams(i)(91))) 'inverts team ratings for WL
-                For j = 92 To 103
-                    RosBytes.Add(DataTeams(i)(j))
-                Next
-            Next
-            fs.Write(RosBytes.ToArray(), 0, RosBytes.Count) 'writes all the team info
-
+            fs.Write(RosBytes2.ToArray(), 0, RosBytes2.Count) 'writes all the team info
             fs.Close()
             MsgBox("File saved, file size " & FileLen(export1.FileName) & ", should be 227592", , "Saved")
         Else

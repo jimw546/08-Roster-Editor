@@ -77,10 +77,14 @@ Partial Class FormDBStadium
         ' 
         ' DataGridView2
         ' 
+        DataGridView2.AllowUserToAddRows = False
+        DataGridView2.AllowUserToDeleteRows = False
         DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView2.Dock = DockStyle.Fill
+        DataGridView2.EditMode = DataGridViewEditMode.EditOnKeystroke
         DataGridView2.Location = New Point(806, 3)
         DataGridView2.Name = "DataGridView2"
+        DataGridView2.ReadOnly = True
         DataGridView2.RowHeadersWidth = 51
         TableLayoutPanel1.SetRowSpan(DataGridView2, 2)
         DataGridView2.Size = New Size(830, 712)
