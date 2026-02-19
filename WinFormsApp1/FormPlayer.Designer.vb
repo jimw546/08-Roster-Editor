@@ -22,6 +22,7 @@ Partial Class FormPlayer
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormPlayer))
         TextPlayerName = New TextBox()
         ComboPosition1 = New ComboBox()
@@ -130,6 +131,7 @@ Partial Class FormPlayer
         Label37 = New Label()
         Label38 = New Label()
         Label40 = New Label()
+        ToolTip1 = New ToolTip(components)
         TabControl1.SuspendLayout()
         TabPage1.SuspendLayout()
         CType(NumericSkin, ComponentModel.ISupportInitialize).BeginInit()
@@ -161,6 +163,7 @@ Partial Class FormPlayer
         TextTend.Name = "TextTend"
         TextTend.Size = New Size(46, 27)
         TextTend.TabIndex = 7
+        ToolTip1.SetToolTip(TextTend, "Tendency")
         ' 
         ' TextAttack
         ' 
@@ -169,6 +172,7 @@ Partial Class FormPlayer
         TextAttack.Name = "TextAttack"
         TextAttack.Size = New Size(46, 27)
         TextAttack.TabIndex = 8
+        ToolTip1.SetToolTip(TextAttack, "Attacking")
         ' 
         ' ComboPosition2
         ' 
@@ -247,7 +251,7 @@ Partial Class FormPlayer
         ComboHands.Location = New Point(390, 180)
         ComboHands.Name = "ComboHands"
         ComboHands.Size = New Size(94, 28)
-        ComboHands.TabIndex = 65
+        ComboHands.TabIndex = 18
         ' 
         ' ComboTapeWrists
         ' 
@@ -256,7 +260,7 @@ Partial Class FormPlayer
         ComboTapeWrists.Location = New Point(390, 146)
         ComboTapeWrists.Name = "ComboTapeWrists"
         ComboTapeWrists.Size = New Size(94, 28)
-        ComboTapeWrists.TabIndex = 64
+        ComboTapeWrists.TabIndex = 17
         ' 
         ' ComboTapeThighs
         ' 
@@ -265,7 +269,7 @@ Partial Class FormPlayer
         ComboTapeThighs.Location = New Point(390, 112)
         ComboTapeThighs.Name = "ComboTapeThighs"
         ComboTapeThighs.Size = New Size(94, 28)
-        ComboTapeThighs.TabIndex = 63
+        ComboTapeThighs.TabIndex = 16
         ' 
         ' Label41
         ' 
@@ -292,7 +296,7 @@ Partial Class FormPlayer
         TextCommentary.MaxLength = 4
         TextCommentary.Name = "TextCommentary"
         TextCommentary.Size = New Size(94, 27)
-        TextCommentary.TabIndex = 33
+        TextCommentary.TabIndex = 12
         ' 
         ' Label35
         ' 
@@ -309,7 +313,7 @@ Partial Class FormPlayer
         NumericSkin.Maximum = New Decimal(New Integer() {3, 0, 0, 0})
         NumericSkin.Name = "NumericSkin"
         NumericSkin.Size = New Size(46, 27)
-        NumericSkin.TabIndex = 29
+        NumericSkin.TabIndex = 15
         ' 
         ' Label34
         ' 
@@ -335,7 +339,7 @@ Partial Class FormPlayer
         TextFace.MaxLength = 5
         TextFace.Name = "TextFace"
         TextFace.Size = New Size(94, 27)
-        TextFace.TabIndex = 23
+        TextFace.TabIndex = 11
         ' 
         ' Label32
         ' 
@@ -353,7 +357,7 @@ Partial Class FormPlayer
         CheckBoxSocks.Location = New Point(302, 49)
         CheckBoxSocks.Name = "CheckBoxSocks"
         CheckBoxSocks.Size = New Size(109, 24)
-        CheckBoxSocks.TabIndex = 22
+        CheckBoxSocks.TabIndex = 14
         CheckBoxSocks.Text = "Socks down"
         CheckBoxSocks.UseVisualStyleBackColor = True
         ' 
@@ -363,7 +367,7 @@ Partial Class FormPlayer
         TextBoots.MaxLength = 2
         TextBoots.Name = "TextBoots"
         TextBoots.Size = New Size(94, 27)
-        TextBoots.TabIndex = 20
+        TextBoots.TabIndex = 13
         ' 
         ' Label31
         ' 
@@ -380,7 +384,7 @@ Partial Class FormPlayer
         TextHeight.MaxLength = 3
         TextHeight.Name = "TextHeight"
         TextHeight.Size = New Size(46, 27)
-        TextHeight.TabIndex = 18
+        TextHeight.TabIndex = 10
         ' 
         ' Label30
         ' 
@@ -398,7 +402,7 @@ Partial Class FormPlayer
         CheckBoxHand.Location = New Point(51, 49)
         CheckBoxHand.Name = "CheckBoxHand"
         CheckBoxHand.Size = New Size(115, 24)
-        CheckBoxHand.TabIndex = 17
+        CheckBoxHand.TabIndex = 8
         CheckBoxHand.Text = "Left-Handed"
         CheckBoxHand.UseVisualStyleBackColor = True
         ' 
@@ -408,7 +412,7 @@ Partial Class FormPlayer
         TextMass.MaxLength = 3
         TextMass.Name = "TextMass"
         TextMass.Size = New Size(46, 27)
-        TextMass.TabIndex = 15
+        TextMass.TabIndex = 9
         ' 
         ' Label29
         ' 
@@ -425,7 +429,7 @@ Partial Class FormPlayer
         TextAge.MaxLength = 2
         TextAge.Name = "TextAge"
         TextAge.Size = New Size(46, 27)
-        TextAge.TabIndex = 13
+        TextAge.TabIndex = 7
         ' 
         ' Label28
         ' 
@@ -508,6 +512,7 @@ Partial Class FormPlayer
         Label27.Size = New Size(36, 20)
         Label27.TabIndex = 59
         Label27.Text = "Gap"
+        ToolTip1.SetToolTip(Label27, "Gap Running")
         ' 
         ' TextGap
         ' 
@@ -515,7 +520,8 @@ Partial Class FormPlayer
         TextGap.MaxLength = 2
         TextGap.Name = "TextGap"
         TextGap.Size = New Size(46, 27)
-        TextGap.TabIndex = 58
+        TextGap.TabIndex = 33
+        ToolTip1.SetToolTip(TextGap, "Gap Running")
         ' 
         ' Label26
         ' 
@@ -525,6 +531,7 @@ Partial Class FormPlayer
         Label26.Size = New Size(45, 20)
         Label26.TabIndex = 57
         Label26.Text = "Crash"
+        ToolTip1.SetToolTip(Label26, "Crash Ball")
         ' 
         ' TextCrash
         ' 
@@ -532,7 +539,8 @@ Partial Class FormPlayer
         TextCrash.MaxLength = 2
         TextCrash.Name = "TextCrash"
         TextCrash.Size = New Size(46, 27)
-        TextCrash.TabIndex = 56
+        TextCrash.TabIndex = 32
+        ToolTip1.SetToolTip(TextCrash, "Crash Ball")
         ' 
         ' Label21
         ' 
@@ -542,6 +550,7 @@ Partial Class FormPlayer
         Label21.Size = New Size(30, 20)
         Label21.TabIndex = 55
         Label21.Text = "Set"
+        ToolTip1.SetToolTip(Label21, "Set Plays")
         ' 
         ' TextSet
         ' 
@@ -549,7 +558,8 @@ Partial Class FormPlayer
         TextSet.MaxLength = 2
         TextSet.Name = "TextSet"
         TextSet.Size = New Size(46, 27)
-        TextSet.TabIndex = 54
+        TextSet.TabIndex = 31
+        ToolTip1.SetToolTip(TextSet, "Set Plays")
         ' 
         ' Label22
         ' 
@@ -559,6 +569,7 @@ Partial Class FormPlayer
         Label22.Size = New Size(46, 20)
         Label22.TabIndex = 53
         Label22.Text = "Brave"
+        ToolTip1.SetToolTip(Label22, "Bravery")
         ' 
         ' TextBrave
         ' 
@@ -566,7 +577,8 @@ Partial Class FormPlayer
         TextBrave.MaxLength = 2
         TextBrave.Name = "TextBrave"
         TextBrave.Size = New Size(46, 27)
-        TextBrave.TabIndex = 51
+        TextBrave.TabIndex = 30
+        ToolTip1.SetToolTip(TextBrave, "Bravery")
         ' 
         ' TextCreat
         ' 
@@ -574,7 +586,8 @@ Partial Class FormPlayer
         TextCreat.MaxLength = 2
         TextCreat.Name = "TextCreat"
         TextCreat.Size = New Size(46, 27)
-        TextCreat.TabIndex = 50
+        TextCreat.TabIndex = 29
+        ToolTip1.SetToolTip(TextCreat, "Creativity")
         ' 
         ' Label23
         ' 
@@ -584,6 +597,7 @@ Partial Class FormPlayer
         Label23.Size = New Size(44, 20)
         Label23.TabIndex = 52
         Label23.Text = "Creat"
+        ToolTip1.SetToolTip(Label23, "Creativity")
         ' 
         ' Label24
         ' 
@@ -593,6 +607,7 @@ Partial Class FormPlayer
         Label24.Size = New Size(46, 20)
         Label24.TabIndex = 49
         Label24.Text = "Temp"
+        ToolTip1.SetToolTip(Label24, "Temprament")
         ' 
         ' TextTemp
         ' 
@@ -600,7 +615,8 @@ Partial Class FormPlayer
         TextTemp.MaxLength = 2
         TextTemp.Name = "TextTemp"
         TextTemp.Size = New Size(46, 27)
-        TextTemp.TabIndex = 47
+        TextTemp.TabIndex = 28
+        ToolTip1.SetToolTip(TextTemp, "Temprament")
         ' 
         ' TextCons
         ' 
@@ -608,7 +624,8 @@ Partial Class FormPlayer
         TextCons.MaxLength = 2
         TextCons.Name = "TextCons"
         TextCons.Size = New Size(46, 27)
-        TextCons.TabIndex = 46
+        TextCons.TabIndex = 27
+        ToolTip1.SetToolTip(TextCons, "Consistency")
         ' 
         ' Label25
         ' 
@@ -618,6 +635,7 @@ Partial Class FormPlayer
         Label25.Size = New Size(41, 20)
         Label25.TabIndex = 48
         Label25.Text = "Cons"
+        ToolTip1.SetToolTip(Label25, "Consistency")
         ' 
         ' Label16
         ' 
@@ -627,6 +645,7 @@ Partial Class FormPlayer
         Label16.Size = New Size(63, 20)
         Label16.TabIndex = 45
         Label16.Text = "Stamina"
+        ToolTip1.SetToolTip(Label16, "Stamina")
         ' 
         ' TextStam
         ' 
@@ -634,7 +653,8 @@ Partial Class FormPlayer
         TextStam.MaxLength = 2
         TextStam.Name = "TextStam"
         TextStam.Size = New Size(46, 27)
-        TextStam.TabIndex = 44
+        TextStam.TabIndex = 26
+        ToolTip1.SetToolTip(TextStam, "Stamina")
         ' 
         ' Label17
         ' 
@@ -644,6 +664,7 @@ Partial Class FormPlayer
         Label17.Size = New Size(51, 20)
         Label17.TabIndex = 43
         Label17.Text = "Aggro"
+        ToolTip1.SetToolTip(Label17, "Aggression")
         ' 
         ' TextAggro
         ' 
@@ -651,7 +672,8 @@ Partial Class FormPlayer
         TextAggro.MaxLength = 2
         TextAggro.Name = "TextAggro"
         TextAggro.Size = New Size(46, 27)
-        TextAggro.TabIndex = 41
+        TextAggro.TabIndex = 25
+        ToolTip1.SetToolTip(TextAggro, "Aggression")
         ' 
         ' TextDiscip
         ' 
@@ -659,7 +681,8 @@ Partial Class FormPlayer
         TextDiscip.MaxLength = 2
         TextDiscip.Name = "TextDiscip"
         TextDiscip.Size = New Size(46, 27)
-        TextDiscip.TabIndex = 40
+        TextDiscip.TabIndex = 24
+        ToolTip1.SetToolTip(TextDiscip, "Discipline")
         ' 
         ' Label18
         ' 
@@ -669,6 +692,7 @@ Partial Class FormPlayer
         Label18.Size = New Size(50, 20)
         Label18.TabIndex = 42
         Label18.Text = "Discip"
+        ToolTip1.SetToolTip(Label18, "Discipline")
         ' 
         ' Label19
         ' 
@@ -678,6 +702,7 @@ Partial Class FormPlayer
         Label19.Size = New Size(36, 20)
         Label19.TabIndex = 39
         Label19.Text = "Line"
+        ToolTip1.SetToolTip(Label19, "Lineouts")
         ' 
         ' TextLine
         ' 
@@ -685,7 +710,8 @@ Partial Class FormPlayer
         TextLine.MaxLength = 2
         TextLine.Name = "TextLine"
         TextLine.Size = New Size(46, 27)
-        TextLine.TabIndex = 37
+        TextLine.TabIndex = 23
+        ToolTip1.SetToolTip(TextLine, "Lineouts")
         ' 
         ' TextHook
         ' 
@@ -693,7 +719,8 @@ Partial Class FormPlayer
         TextHook.MaxLength = 2
         TextHook.Name = "TextHook"
         TextHook.Size = New Size(46, 27)
-        TextHook.TabIndex = 36
+        TextHook.TabIndex = 22
+        ToolTip1.SetToolTip(TextHook, "Hooking")
         ' 
         ' Label20
         ' 
@@ -703,6 +730,7 @@ Partial Class FormPlayer
         Label20.Size = New Size(45, 20)
         Label20.TabIndex = 38
         Label20.Text = "Hook"
+        ToolTip1.SetToolTip(Label20, "Hooking")
         ' 
         ' Label11
         ' 
@@ -712,6 +740,7 @@ Partial Class FormPlayer
         Label11.Size = New Size(50, 20)
         Label11.TabIndex = 35
         Label11.Text = "Scrum"
+        ToolTip1.SetToolTip(Label11, "Scrummaging")
         ' 
         ' TextScrum
         ' 
@@ -719,7 +748,8 @@ Partial Class FormPlayer
         TextScrum.MaxLength = 2
         TextScrum.Name = "TextScrum"
         TextScrum.Size = New Size(46, 27)
-        TextScrum.TabIndex = 34
+        TextScrum.TabIndex = 21
+        ToolTip1.SetToolTip(TextScrum, "Scrummaging")
         ' 
         ' Label12
         ' 
@@ -729,6 +759,7 @@ Partial Class FormPlayer
         Label12.Size = New Size(40, 20)
         Label12.TabIndex = 33
         Label12.Text = "Ruck"
+        ToolTip1.SetToolTip(Label12, "Rucking")
         ' 
         ' TextRuck
         ' 
@@ -736,7 +767,8 @@ Partial Class FormPlayer
         TextRuck.MaxLength = 2
         TextRuck.Name = "TextRuck"
         TextRuck.Size = New Size(46, 27)
-        TextRuck.TabIndex = 31
+        TextRuck.TabIndex = 20
+        ToolTip1.SetToolTip(TextRuck, "Rucking")
         ' 
         ' TextStrength
         ' 
@@ -744,7 +776,8 @@ Partial Class FormPlayer
         TextStrength.MaxLength = 2
         TextStrength.Name = "TextStrength"
         TextStrength.Size = New Size(46, 27)
-        TextStrength.TabIndex = 30
+        TextStrength.TabIndex = 19
+        ToolTip1.SetToolTip(TextStrength, "Strength")
         ' 
         ' Label13
         ' 
@@ -754,6 +787,7 @@ Partial Class FormPlayer
         Label13.Size = New Size(65, 20)
         Label13.TabIndex = 32
         Label13.Text = "Strength"
+        ToolTip1.SetToolTip(Label13, "Strength")
         ' 
         ' Label14
         ' 
@@ -763,6 +797,7 @@ Partial Class FormPlayer
         Label14.Size = New Size(49, 20)
         Label14.TabIndex = 29
         Label14.Text = "Tackle"
+        ToolTip1.SetToolTip(Label14, "Tackling")
         ' 
         ' TextTackle
         ' 
@@ -770,7 +805,8 @@ Partial Class FormPlayer
         TextTackle.MaxLength = 2
         TextTackle.Name = "TextTackle"
         TextTackle.Size = New Size(46, 27)
-        TextTackle.TabIndex = 27
+        TextTackle.TabIndex = 18
+        ToolTip1.SetToolTip(TextTackle, "Tackling")
         ' 
         ' TextGoal
         ' 
@@ -778,7 +814,8 @@ Partial Class FormPlayer
         TextGoal.MaxLength = 2
         TextGoal.Name = "TextGoal"
         TextGoal.Size = New Size(46, 27)
-        TextGoal.TabIndex = 26
+        TextGoal.TabIndex = 17
+        ToolTip1.SetToolTip(TextGoal, "Goal Kicking")
         ' 
         ' Label15
         ' 
@@ -788,6 +825,7 @@ Partial Class FormPlayer
         Label15.Size = New Size(40, 20)
         Label15.TabIndex = 28
         Label15.Text = "Goal"
+        ToolTip1.SetToolTip(Label15, "Goal Kicking")
         ' 
         ' Label6
         ' 
@@ -797,6 +835,7 @@ Partial Class FormPlayer
         Label6.Size = New Size(60, 20)
         Label6.TabIndex = 25
         Label6.Text = "KickPwr"
+        ToolTip1.SetToolTip(Label6, "Kicking Power")
         ' 
         ' TextKickPwr
         ' 
@@ -804,7 +843,8 @@ Partial Class FormPlayer
         TextKickPwr.MaxLength = 2
         TextKickPwr.Name = "TextKickPwr"
         TextKickPwr.Size = New Size(46, 27)
-        TextKickPwr.TabIndex = 24
+        TextKickPwr.TabIndex = 16
+        ToolTip1.SetToolTip(TextKickPwr, "Kicking Power")
         ' 
         ' Label7
         ' 
@@ -814,6 +854,7 @@ Partial Class FormPlayer
         Label7.Size = New Size(36, 20)
         Label7.TabIndex = 23
         Label7.Text = "Kick"
+        ToolTip1.SetToolTip(Label7, "Kicking Accuracy")
         ' 
         ' TextKick
         ' 
@@ -821,7 +862,8 @@ Partial Class FormPlayer
         TextKick.MaxLength = 2
         TextKick.Name = "TextKick"
         TextKick.Size = New Size(46, 27)
-        TextKick.TabIndex = 21
+        TextKick.TabIndex = 15
+        ToolTip1.SetToolTip(TextKick, "Kicking Accuracy")
         ' 
         ' TextPass
         ' 
@@ -829,7 +871,8 @@ Partial Class FormPlayer
         TextPass.MaxLength = 2
         TextPass.Name = "TextPass"
         TextPass.Size = New Size(46, 27)
-        TextPass.TabIndex = 20
+        TextPass.TabIndex = 14
+        ToolTip1.SetToolTip(TextPass, "Passing")
         ' 
         ' Label8
         ' 
@@ -839,6 +882,7 @@ Partial Class FormPlayer
         Label8.Size = New Size(36, 20)
         Label8.TabIndex = 22
         Label8.Text = "Pass"
+        ToolTip1.SetToolTip(Label8, "Passing")
         ' 
         ' Label9
         ' 
@@ -848,6 +892,7 @@ Partial Class FormPlayer
         Label9.Size = New Size(49, 20)
         Label9.TabIndex = 19
         Label9.Text = "Handl"
+        ToolTip1.SetToolTip(Label9, "Ball Handling")
         ' 
         ' TextHandl
         ' 
@@ -856,6 +901,7 @@ Partial Class FormPlayer
         TextHandl.Name = "TextHandl"
         TextHandl.Size = New Size(46, 27)
         TextHandl.TabIndex = 13
+        ToolTip1.SetToolTip(TextHandl, "Ball Handling")
         ' 
         ' TextAgil
         ' 
@@ -864,6 +910,7 @@ Partial Class FormPlayer
         TextAgil.Name = "TextAgil"
         TextAgil.Size = New Size(46, 27)
         TextAgil.TabIndex = 12
+        ToolTip1.SetToolTip(TextAgil, "Agility")
         ' 
         ' Label10
         ' 
@@ -873,6 +920,7 @@ Partial Class FormPlayer
         Label10.Size = New Size(36, 20)
         Label10.TabIndex = 18
         Label10.Text = "Agil"
+        ToolTip1.SetToolTip(Label10, "Agility")
         ' 
         ' Label5
         ' 
@@ -882,6 +930,7 @@ Partial Class FormPlayer
         Label5.Size = New Size(45, 20)
         Label5.TabIndex = 15
         Label5.Text = "Accel"
+        ToolTip1.SetToolTip(Label5, "Acceleration")
         ' 
         ' TextAccel
         ' 
@@ -890,6 +939,7 @@ Partial Class FormPlayer
         TextAccel.Name = "TextAccel"
         TextAccel.Size = New Size(46, 27)
         TextAccel.TabIndex = 11
+        ToolTip1.SetToolTip(TextAccel, "Acceleration")
         ' 
         ' Label3
         ' 
@@ -899,6 +949,7 @@ Partial Class FormPlayer
         Label3.Size = New Size(51, 20)
         Label3.TabIndex = 13
         Label3.Text = "Speed"
+        ToolTip1.SetToolTip(Label3, "Speed")
         ' 
         ' TextSpeed
         ' 
@@ -907,6 +958,7 @@ Partial Class FormPlayer
         TextSpeed.Name = "TextSpeed"
         TextSpeed.Size = New Size(46, 27)
         TextSpeed.TabIndex = 10
+        ToolTip1.SetToolTip(TextSpeed, "Speed")
         ' 
         ' TextDefend
         ' 
@@ -915,6 +967,7 @@ Partial Class FormPlayer
         TextDefend.Name = "TextDefend"
         TextDefend.Size = New Size(46, 27)
         TextDefend.TabIndex = 9
+        ToolTip1.SetToolTip(TextDefend, "Defending")
         ' 
         ' Label4
         ' 
@@ -924,6 +977,7 @@ Partial Class FormPlayer
         Label4.Size = New Size(58, 20)
         Label4.TabIndex = 12
         Label4.Text = "Defend"
+        ToolTip1.SetToolTip(Label4, "Defending")
         ' 
         ' Label2
         ' 
@@ -933,6 +987,7 @@ Partial Class FormPlayer
         Label2.Size = New Size(51, 20)
         Label2.TabIndex = 9
         Label2.Text = "Attack"
+        ToolTip1.SetToolTip(Label2, "Attacking")
         ' 
         ' Label1
         ' 
@@ -942,6 +997,7 @@ Partial Class FormPlayer
         Label1.Size = New Size(41, 20)
         Label1.TabIndex = 8
         Label1.Text = "Tend"
+        ToolTip1.SetToolTip(Label1, "Tendency")
         ' 
         ' TabPage3
         ' 
@@ -973,7 +1029,7 @@ Partial Class FormPlayer
         ' 
         CheckTackler.AutoSize = True
         CheckTackler.CheckAlign = ContentAlignment.MiddleRight
-        CheckTackler.Location = New Point(283, 225)
+        CheckTackler.Location = New Point(295, 225)
         CheckTackler.Name = "CheckTackler"
         CheckTackler.Size = New Size(76, 24)
         CheckTackler.TabIndex = 49
@@ -984,7 +1040,7 @@ Partial Class FormPlayer
         ' 
         CheckBallWin.AutoSize = True
         CheckBallWin.CheckAlign = ContentAlignment.MiddleRight
-        CheckBallWin.Location = New Point(252, 195)
+        CheckBallWin.Location = New Point(264, 195)
         CheckBallWin.Name = "CheckBallWin"
         CheckBallWin.Size = New Size(107, 24)
         CheckBallWin.TabIndex = 48
@@ -995,7 +1051,7 @@ Partial Class FormPlayer
         ' 
         CheckDefOrg.AutoSize = True
         CheckDefOrg.CheckAlign = ContentAlignment.MiddleRight
-        CheckDefOrg.Location = New Point(245, 165)
+        CheckDefOrg.Location = New Point(257, 165)
         CheckDefOrg.Name = "CheckDefOrg"
         CheckDefOrg.Size = New Size(114, 24)
         CheckDefOrg.TabIndex = 47
@@ -1006,7 +1062,7 @@ Partial Class FormPlayer
         ' 
         CheckScrum.AutoSize = True
         CheckScrum.CheckAlign = ContentAlignment.MiddleRight
-        CheckScrum.Location = New Point(249, 135)
+        CheckScrum.Location = New Point(261, 135)
         CheckScrum.Name = "CheckScrum"
         CheckScrum.Size = New Size(110, 24)
         CheckScrum.TabIndex = 46
@@ -1017,7 +1073,7 @@ Partial Class FormPlayer
         ' 
         CheckJumper.AutoSize = True
         CheckJumper.CheckAlign = ContentAlignment.MiddleRight
-        CheckJumper.Location = New Point(280, 105)
+        CheckJumper.Location = New Point(292, 105)
         CheckJumper.Name = "CheckJumper"
         CheckJumper.Size = New Size(79, 24)
         CheckJumper.TabIndex = 45
@@ -1028,7 +1084,7 @@ Partial Class FormPlayer
         ' 
         CheckBox11.AutoSize = True
         CheckBox11.CheckAlign = ContentAlignment.MiddleRight
-        CheckBox11.Location = New Point(283, 75)
+        CheckBox11.Location = New Point(295, 75)
         CheckBox11.Name = "CheckBox11"
         CheckBox11.Size = New Size(76, 24)
         CheckBox11.TabIndex = 44
@@ -1039,7 +1095,7 @@ Partial Class FormPlayer
         ' 
         CheckBox10.AutoSize = True
         CheckBox10.CheckAlign = ContentAlignment.MiddleRight
-        CheckBox10.Location = New Point(283, 45)
+        CheckBox10.Location = New Point(295, 45)
         CheckBox10.Name = "CheckBox10"
         CheckBox10.Size = New Size(76, 24)
         CheckBox10.TabIndex = 43
@@ -1050,7 +1106,7 @@ Partial Class FormPlayer
         ' 
         CheckInjury.AutoSize = True
         CheckInjury.CheckAlign = ContentAlignment.MiddleRight
-        CheckInjury.Location = New Point(249, 15)
+        CheckInjury.Location = New Point(262, 15)
         CheckInjury.Name = "CheckInjury"
         CheckInjury.Size = New Size(109, 24)
         CheckInjury.TabIndex = 42
@@ -1083,7 +1139,7 @@ Partial Class FormPlayer
         ' 
         CheckPlaymaker.AutoSize = True
         CheckPlaymaker.CheckAlign = ContentAlignment.MiddleRight
-        CheckPlaymaker.Location = New Point(89, 165)
+        CheckPlaymaker.Location = New Point(87, 165)
         CheckPlaymaker.Name = "CheckPlaymaker"
         CheckPlaymaker.Size = New Size(99, 24)
         CheckPlaymaker.TabIndex = 39
@@ -1094,7 +1150,7 @@ Partial Class FormPlayer
         ' 
         CheckScoring.AutoSize = True
         CheckScoring.CheckAlign = ContentAlignment.MiddleRight
-        CheckScoring.Location = New Point(107, 135)
+        CheckScoring.Location = New Point(105, 135)
         CheckScoring.Name = "CheckScoring"
         CheckScoring.Size = New Size(81, 24)
         CheckScoring.TabIndex = 38
@@ -1105,7 +1161,7 @@ Partial Class FormPlayer
         ' 
         CheckGoalkick.AutoSize = True
         CheckGoalkick.CheckAlign = ContentAlignment.MiddleRight
-        CheckGoalkick.Location = New Point(82, 105)
+        CheckGoalkick.Location = New Point(80, 105)
         CheckGoalkick.Name = "CheckGoalkick"
         CheckGoalkick.Size = New Size(106, 24)
         CheckGoalkick.TabIndex = 37
@@ -1116,7 +1172,7 @@ Partial Class FormPlayer
         ' 
         CheckTacticalKick.AutoSize = True
         CheckTacticalKick.CheckAlign = ContentAlignment.MiddleRight
-        CheckTacticalKick.Location = New Point(77, 75)
+        CheckTacticalKick.Location = New Point(75, 75)
         CheckTacticalKick.Name = "CheckTacticalKick"
         CheckTacticalKick.Size = New Size(111, 24)
         CheckTacticalKick.TabIndex = 36
@@ -1127,7 +1183,7 @@ Partial Class FormPlayer
         ' 
         CheckCrashBall.AutoSize = True
         CheckCrashBall.CheckAlign = ContentAlignment.MiddleRight
-        CheckCrashBall.Location = New Point(92, 45)
+        CheckCrashBall.Location = New Point(90, 45)
         CheckCrashBall.Name = "CheckCrashBall"
         CheckCrashBall.Size = New Size(96, 24)
         CheckCrashBall.TabIndex = 35
@@ -1138,10 +1194,10 @@ Partial Class FormPlayer
         ' 
         CheckTackleBreak.AutoSize = True
         CheckTackleBreak.CheckAlign = ContentAlignment.MiddleRight
-        CheckTackleBreak.Location = New Point(76, 15)
+        CheckTackleBreak.Location = New Point(74, 15)
         CheckTackleBreak.Name = "CheckTackleBreak"
         CheckTackleBreak.Size = New Size(112, 24)
-        CheckTackleBreak.TabIndex = 33
+        CheckTackleBreak.TabIndex = 34
         CheckTackleBreak.Text = "Tackle Break"
         CheckTackleBreak.UseVisualStyleBackColor = True
         ' 
@@ -1150,7 +1206,7 @@ Partial Class FormPlayer
         ButtonSave.Location = New Point(324, 416)
         ButtonSave.Name = "ButtonSave"
         ButtonSave.Size = New Size(94, 29)
-        ButtonSave.TabIndex = 10
+        ButtonSave.TabIndex = 50
         ButtonSave.Text = "Save"
         ButtonSave.UseVisualStyleBackColor = True
         ' 
@@ -1159,7 +1215,7 @@ Partial Class FormPlayer
         ButtonCancel.Location = New Point(442, 416)
         ButtonCancel.Name = "ButtonCancel"
         ButtonCancel.Size = New Size(94, 29)
-        ButtonCancel.TabIndex = 11
+        ButtonCancel.TabIndex = 51
         ButtonCancel.Text = "Cancel"
         ButtonCancel.UseVisualStyleBackColor = True
         ' 
@@ -1339,4 +1395,5 @@ Partial Class FormPlayer
     Friend WithEvents ComboTapeWrists As ComboBox
     Friend WithEvents ComboTapeThighs As ComboBox
     Friend WithEvents Label40 As Label
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

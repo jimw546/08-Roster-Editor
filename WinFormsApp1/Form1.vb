@@ -25,6 +25,19 @@ Public Class Form1
     Dim j As Integer
     Dim fs As FileStream
 
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim xFile1 As String = IO.Path.GetFullPath("be2970b0ada8e42cf891ce60ffe69575.xml") 'import the xml's on startup
+        Dim dt As New DataSet
+        dt.ReadXml(xFile1)
+        DataTeamNames = dt.Tables(2)
+
+        Dim xFile2 As String = IO.Path.GetFullPath("119ba3f37fe7a31c2b2ee45ceeafa091.xml")
+        Dim dt2 As New DataSet
+        dt2.ReadXml(xFile2)
+        DataStadiums = dt2.Tables(2)
+    End Sub
+
     Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonImport.Click
 
         Dim openfileresult As DialogResult = import1.ShowDialog()
@@ -254,28 +267,24 @@ Public Class Form1
                 DataTeams.Clear()
             End If
 
-            Dim xFile1 As String = IO.Path.GetFullPath("be2970b0ada8e42cf891ce60ffe69575.xml")
-            Dim dt As New DataSet
-            dt.ReadXml(xFile1)
-            DataTeamNames = dt.Tables(2)
-
-            Dim xFile2 As String = IO.Path.GetFullPath("119ba3f37fe7a31c2b2ee45ceeafa091.xml")
-            Dim dt2 As New DataSet
-            dt2.ReadXml(xFile2)
-            DataStadiums = dt2.Tables(2)
+            If Strings.Right(import1.FileName, 4) = ".tmt" Then
+                Array.Resize(FileStart, 195444) 're-size the holding array if importing a tournament, needs testing as only tried on WL saves
+            Else
+                Array.Resize(FileStart, 132) 'if importing a roster, grab the first 132 bytes and hold to one side for saving later
+            End If
 
             Using Reader As New BinaryReader(File.Open(import1.FileName, FileMode.Open))
-                For i = 0 To 131
-                    FileStart(i) = Reader.ReadByte 'dump the first 132 bytes into a holding array
+                For i = 0 To FileStart.Length - 1 'need to test if this is working correctly when saving the re-sized files, previous value was 131
+                    FileStart(i) = Reader.ReadByte 'dump the first bytes into a holding array, to use when saving the file later
                 Next
 
-                For i = 0 To 141
+                For i = 0 To 141 'read in team data to table
                     DataTeams.Rows.Add()
                     For j = 0 To 103
                         DataTeams.Rows(i)(j) = Reader.ReadByte
                     Next
                 Next
-                'reader.ReadBytes(100) 'buffer data between roster and players
+                'no longer used - - - reader.ReadBytes(100) 'buffer data between roster and players
                 For i = 0 To 2042 '1904 '1904 to check a created player from in-game, should be 1903 '1904 rows, I think this is the max in the file
                     DataPlayers.Rows.Add()
                     For j = 0 To 99
@@ -308,9 +317,9 @@ Public Class Form1
             & Chr(DataPlayers.Rows(i)(12)) & Chr(DataPlayers.Rows(i)(13)) _
             & Chr(DataPlayers.Rows(i)(14)) & Chr(DataPlayers.Rows(i)(15)) _
             & Chr(DataPlayers.Rows(i)(16)) & Chr(DataPlayers.Rows(i)(17)) _
-            & Chr(DataPlayers.Rows(i)(18)) & Chr(DataPlayers.Rows(i)(19))
-                DataPlayers.Rows(i)("PlayerIndex") = i
-                DataPlayers(i)("PlayerAddress") = CInt("&H" & Hex(DataPlayers(i)(1)) &
+            & Chr(DataPlayers.Rows(i)(18)) & Chr(DataPlayers.Rows(i)(19)) 'adds the player name to the last column
+                DataPlayers.Rows(i)("PlayerIndex") = i 'adds a numeric index value to the last column
+                DataPlayers(i)("PlayerAddress") = CInt("&H" & Hex(DataPlayers(i)(1)) & 'converts the in-game "address" value to numeric
             Strings.Right("00" & Hex(DataPlayers(i)(0)).ToString, 2))
             Next
 
@@ -327,7 +336,7 @@ Public Class Form1
                             End If
                         End If
                     Next
-                    For j = 0 To DataStadiums.Rows.Count - 1
+                    For j = 0 To DataStadiums.Rows.Count - 1 'add stadium names to the team data
                         If DataTeams(i)(96) = DataStadiums(j)(1) Then
                             DataTeams(i)("HomeStadiumName") = DataStadiums(j)(4)
                         End If
@@ -388,7 +397,7 @@ Public Class Form1
     End Sub
 
     Private Sub ButtonSave_Click(sender As Object, e As EventArgs) Handles ButtonSave.Click
-        export1.DefaultExt = ".ros"
+        export1.DefaultExt = ".ros" 'need to amend this for saving tournaments
         export1.FileName = ""
         Dim savefileresult As DialogResult = export1.ShowDialog()
         Dim RosBytes As New List(Of Byte)()
@@ -412,7 +421,7 @@ Public Class Form1
             End Try
 
             fs = File.OpenWrite(export1.FileName)
-            fs.SetLength(219220)
+            fs.SetLength(219220) 'need to amend this for tournaments
             fs.Write(RosBytes.ToArray(), 0, RosBytes.Count) 'writes all the above data
             fs.Close()
             MsgBox("File saved, file size " & FileLen(export1.FileName) & ", should be 219220", , "Saved")

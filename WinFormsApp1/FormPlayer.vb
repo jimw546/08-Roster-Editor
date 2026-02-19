@@ -273,6 +273,4 @@
     Private Sub ComboPosition3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboPosition3.SelectedIndexChanged
 
     End Sub
-
-
 End Class

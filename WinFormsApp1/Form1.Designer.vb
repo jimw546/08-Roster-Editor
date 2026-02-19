@@ -69,7 +69,7 @@ Partial Class Form1
         ListBoxTeams.Location = New Point(6, 20)
         ListBoxTeams.Name = "ListBoxTeams"
         ListBoxTeams.Size = New Size(150, 204)
-        ListBoxTeams.TabIndex = 2
+        ListBoxTeams.TabIndex = 7
         ' 
         ' ListBoxPlayers
         ' 
@@ -77,14 +77,14 @@ Partial Class Form1
         ListBoxPlayers.Location = New Point(6, 20)
         ListBoxPlayers.Name = "ListBoxPlayers"
         ListBoxPlayers.Size = New Size(149, 204)
-        ListBoxPlayers.TabIndex = 5
+        ListBoxPlayers.TabIndex = 12
         ' 
         ' ButtonSave
         ' 
         ButtonSave.Location = New Point(22, 318)
         ButtonSave.Name = "ButtonSave"
         ButtonSave.Size = New Size(115, 29)
-        ButtonSave.TabIndex = 6
+        ButtonSave.TabIndex = 2
         ButtonSave.Text = "Save Roster"
         ButtonSave.UseVisualStyleBackColor = True
         ' 
@@ -95,7 +95,7 @@ Partial Class Form1
         ComboNationality.Location = New Point(94, 20)
         ComboNationality.Name = "ComboNationality"
         ComboNationality.Size = New Size(150, 28)
-        ComboNationality.TabIndex = 8
+        ComboNationality.TabIndex = 9
         ' 
         ' GroupBox1
         ' 
@@ -108,7 +108,7 @@ Partial Class Form1
         GroupBox1.Location = New Point(332, 14)
         GroupBox1.Name = "GroupBox1"
         GroupBox1.Size = New Size(253, 130)
-        GroupBox1.TabIndex = 10
+        GroupBox1.TabIndex = 9
         GroupBox1.TabStop = False
         GroupBox1.Text = "Player Filter"
         ' 
@@ -146,14 +146,14 @@ Partial Class Form1
         ComboPosition.Location = New Point(94, 54)
         ComboPosition.Name = "ComboPosition"
         ComboPosition.Size = New Size(150, 28)
-        ComboPosition.TabIndex = 9
+        ComboPosition.TabIndex = 10
         ' 
         ' TextBoxNameFilter
         ' 
         TextBoxNameFilter.Location = New Point(94, 88)
         TextBoxNameFilter.Name = "TextBoxNameFilter"
         TextBoxNameFilter.Size = New Size(150, 27)
-        TextBoxNameFilter.TabIndex = 4
+        TextBoxNameFilter.TabIndex = 11
         ' 
         ' GroupBox2
         ' 
@@ -161,7 +161,7 @@ Partial Class Form1
         GroupBox2.Location = New Point(421, 158)
         GroupBox2.Name = "GroupBox2"
         GroupBox2.Size = New Size(164, 236)
-        GroupBox2.TabIndex = 11
+        GroupBox2.TabIndex = 10
         GroupBox2.TabStop = False
         GroupBox2.Text = "Player List"
         ' 
@@ -171,7 +171,7 @@ Partial Class Form1
         GroupBox3.Location = New Point(154, 158)
         GroupBox3.Name = "GroupBox3"
         GroupBox3.Size = New Size(165, 236)
-        GroupBox3.TabIndex = 12
+        GroupBox3.TabIndex = 7
         GroupBox3.TabStop = False
         GroupBox3.Text = "Team List"
         ' 
@@ -185,7 +185,7 @@ Partial Class Form1
         GroupBox4.Location = New Point(66, 14)
         GroupBox4.Name = "GroupBox4"
         GroupBox4.Size = New Size(253, 130)
-        GroupBox4.TabIndex = 17
+        GroupBox4.TabIndex = 4
         GroupBox4.TabStop = False
         GroupBox4.Text = "Team Filter"
         ' 
@@ -196,7 +196,7 @@ Partial Class Form1
         CheckEnabledTeam.Location = New Point(6, 90)
         CheckEnabledTeam.Name = "CheckEnabledTeam"
         CheckEnabledTeam.Size = New Size(176, 24)
-        CheckEnabledTeam.TabIndex = 19
+        CheckEnabledTeam.TabIndex = 6
         CheckEnabledTeam.Text = "Show Disabled Teams"
         CheckEnabledTeam.UseVisualStyleBackColor = True
         ' 
@@ -223,7 +223,7 @@ Partial Class Form1
         TextTeamName.Location = New Point(94, 54)
         TextTeamName.Name = "TextTeamName"
         TextTeamName.Size = New Size(150, 27)
-        TextTeamName.TabIndex = 4
+        TextTeamName.TabIndex = 5
         ' 
         ' ComboTournament
         ' 
@@ -232,14 +232,14 @@ Partial Class Form1
         ComboTournament.Location = New Point(94, 20)
         ComboTournament.Name = "ComboTournament"
         ComboTournament.Size = New Size(150, 28)
-        ComboTournament.TabIndex = 8
+        ComboTournament.TabIndex = 4
         ' 
         ' ButtonRDF
         ' 
         ButtonRDF.Location = New Point(22, 363)
         ButtonRDF.Name = "ButtonRDF"
         ButtonRDF.Size = New Size(115, 29)
-        ButtonRDF.TabIndex = 20
+        ButtonRDF.TabIndex = 3
         ButtonRDF.Text = "Save RDF"
         ButtonRDF.UseVisualStyleBackColor = True
         ' 
@@ -248,7 +248,7 @@ Partial Class Form1
         ButtonTeam.Location = New Point(174, 400)
         ButtonTeam.Name = "ButtonTeam"
         ButtonTeam.Size = New Size(115, 29)
-        ButtonTeam.TabIndex = 21
+        ButtonTeam.TabIndex = 8
         ButtonTeam.Text = "Edit Team"
         ButtonTeam.UseVisualStyleBackColor = True
         ' 
@@ -257,16 +257,16 @@ Partial Class Form1
         ButtonPlayer.Location = New Point(439, 400)
         ButtonPlayer.Name = "ButtonPlayer"
         ButtonPlayer.Size = New Size(115, 29)
-        ButtonPlayer.TabIndex = 22
+        ButtonPlayer.TabIndex = 13
         ButtonPlayer.Text = "Edit Player"
         ButtonPlayer.UseVisualStyleBackColor = True
         ' 
         ' Button1
         ' 
-        Button1.Location = New Point(22, 237)
+        Button1.Location = New Point(22, 233)
         Button1.Name = "Button1"
         Button1.Size = New Size(115, 29)
-        Button1.TabIndex = 23
+        Button1.TabIndex = 1
         Button1.Text = "Extras"
         Button1.UseVisualStyleBackColor = True
         ' 
