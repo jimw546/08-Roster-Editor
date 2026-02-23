@@ -285,7 +285,7 @@ Public Class Form1
                     Next
                 Next
                 'no longer used - - - reader.ReadBytes(100) 'buffer data between roster and players
-                For i = 0 To 2042 '1904 '1904 to check a created player from in-game, should be 1903 '1904 rows, I think this is the max in the file
+                For i = 0 To 2042 '1904 to check a created player from in-game, should be 1903 '1904 rows, I think this is the max in the file
                     DataPlayers.Rows.Add()
                     For j = 0 To 99
                         Try
@@ -306,7 +306,6 @@ Public Class Form1
             '    End If
             'Next
             'DataPlayers.AcceptChanges()
-
 
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance)
             For i = 0 To DataPlayers.Rows.Count - 1
@@ -421,7 +420,12 @@ Public Class Form1
             End Try
 
             fs = File.OpenWrite(export1.FileName)
-            fs.SetLength(219220) 'need to amend this for tournaments
+
+            If Strings.Right(import1.FileName, 4) = ".tmt" Then
+                fs.SetLength(414532) 're-size the output file for a tournament, needs testing as only tried on WL saves
+            Else
+                fs.SetLength(219220) 'need to amend this for tournaments
+            End If
             fs.Write(RosBytes.ToArray(), 0, RosBytes.Count) 'writes all the above data
             fs.Close()
             MsgBox("File saved, file size " & FileLen(export1.FileName) & ", should be 219220", , "Saved")
